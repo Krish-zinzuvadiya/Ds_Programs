@@ -49,13 +49,13 @@ public class SinglyLinkedlist {
                     break;
 
                 case 5:
-                System.out.print("Enter The Element From LinkList : ");
-                int val2 = sc.nextInt();
-                System.out.print("Enter The Element After "+ val2 + " : ");
-                int d2 = sc.nextInt();
-                s.insertAfterValue(d2, val2);
-                s.display();
-                break;
+                    System.out.print("Enter The Element From LinkList : ");
+                    int val2 = sc.nextInt();
+                    System.out.print("Enter The Element After "+ val2 + " : ");
+                    int d2 = sc.nextInt();
+                    s.insertAfterValue(d2, val2);
+                    s.display();
+                    break;
 
                 case 6:
                     s.deleteFirst();
@@ -67,12 +67,12 @@ public class SinglyLinkedlist {
                     s.display();
                     break;
 
-                    case 8: 
-                        System.out.print("Enter Particular Element That You Want To Delete : ");
-                        int val3 = sc.nextInt();
-                        s.deleteParticularValue(val3);
-                        s.display();
-                        break;
+                case 8: 
+                    System.out.print("Enter Particular Element That You Want To Delete : ");
+                    int val3 = sc.nextInt();
+                    s.deleteParticularValue(val3);
+                    s.display();
+                    break;
                 case 9: 
                     System.out.println("Thank You For Using Our Code...");
                     System.exit(0);
