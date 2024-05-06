@@ -14,7 +14,12 @@ public class SinglyLinkedlist {
             System.out.println("6. Delete First Element.");
             System.out.println("7. Delete Last Element.");
             System.out.println("8. Delete Any Particular Value.");
-            System.out.println("9. Exit.");
+            System.out.println("9. Display An Odd Number Of Elements.");
+            System.out.println("10. Display An Even Number Of Elements.");
+            System.out.println("11. Display Element Using Recursion.");
+            System.out.println("12. Display Reverse Element Using Recursion.");
+            System.out.println("13. Display An Sorted Element For New Element.");
+            System.out.println("14. Exit.");
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
             System.out.print("Enter Your Choice : ");
             int choice = sc.nextInt();
@@ -73,7 +78,31 @@ public class SinglyLinkedlist {
                     s.deleteParticularValue(val3);
                     s.display();
                     break;
-                case 9: 
+
+                case 9:
+                     s.displayOdd();
+                    break;
+
+                case 10:
+                    s.displayEven();
+                    break;
+
+                case 11:
+                    s.recursionDisplay(s.first);
+                    break;
+
+                case 12: 
+                    s.reverseDisplay(s.first);
+                    System.out.println();
+                    break;
+
+                case 13: 
+                    System.out.print("Enter The New Element You Want To Sorted :- ");
+                    int val4 = sc.nextInt();
+                    s.sortedInsert(val4);
+                    s.display();
+                    break;
+                case 14: 
                     System.out.println("Thank You For Using Our Code...");
                     System.exit(0);
                     break;
@@ -263,6 +292,73 @@ class SinglyLL {
                 temp = temp.next;
             }
             System.out.println("null");
+        }
+    }
+
+    void displayOdd(){
+        int count = 0;
+        Node temp = first;
+        if(first == null){
+            System.out.println("List is Empty.");
+        } else {
+            while(temp!= null){
+                count++;
+                if(count % 2!= 0){
+                    System.out.print(temp.data+" --> ");
+                }
+                temp = temp.next;
+            }
+            System.out.println("null");
+        }
+    }
+    void displayEven() {
+        int count = 0;
+        Node temp = first;
+        if (first == null) {
+            System.out.println("List is Empty.");
+        } else {
+            while (temp != null) {
+                count++;
+                if (count % 2 == 0) { // Check if the position is even
+                    System.out.print(temp.data + " --> ");
+                }
+                temp = temp.next;
+            }
+            System.out.println("null");
+        }
+    }
+
+    void recursionDisplay(Node temp){
+        if(temp!= null){
+            System.out.print(temp.data+" --> ");
+            recursionDisplay(temp.next);
+        } else {
+            System.out.println("null");
+        }
+    }
+
+    void reverseDisplay(Node temp){
+        if(temp != null){
+            reverseDisplay(temp.next);
+            System.out.print(temp.data + " <-- ");
+        } else {
+            System.out.print("null <-- ");
+            return;
+        }
+    }
+
+    void sortedInsert(int d){
+        Node n = new Node(d);
+        if(first == null || first.data >= n.data){ 
+            n.next = first;
+            first = n;
+        } else {
+            Node temp = first;
+            while(temp.next!= null && temp.next.data < n.data){
+                temp = temp.next;
+            }
+            n.next = temp.next;
+            temp.next = n;
         }
     }
 }
