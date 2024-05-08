@@ -1,0 +1,3 @@
+// HI ,
+// --> here only all methods for linklist will be here...
+
