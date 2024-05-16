@@ -84,24 +84,18 @@ class Queue1{
         }
     }
         void display(){
+            int i;
             if(f==-1){
                 System.out.println("Queue is Empty.");
-            }
-            if(f>r) {
-                System.out.println("--------------------");
-                for(int i=f;i<=size-1;i++){
-                    System.out.print(q1[i]+" ");
-                }
-                for(int i=0;i<=r;i++){
-                    System.out.print(q1[i]+" ");
-                } 
             } else {
                 System.out.println("--------------------");
-                    for(int i=f;i<=r;i++){
-                        System.out.print(q1[i]+" ");
-                    }
+
+                for(i = f; i!=r; i = (i+1)%size){
+                    System.out.print(q1[i]+" || ");
                 }
-                System.out.println();
+                System.out.println(q1[i]);
+            }
                 System.out.println("--------------------");
         }
 }
+
