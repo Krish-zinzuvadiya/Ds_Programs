@@ -1,3 +1,4 @@
+// DoubleEnded Queue....
 import java.util.Scanner;
 
 public class DoubleEndedQueue {
