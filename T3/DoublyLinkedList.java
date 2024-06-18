@@ -1,4 +1,4 @@
-// Double LinkedList 
+//3.Double LinkedList 
 import java.util.Scanner;
 
 class DoublyLinkedList {
