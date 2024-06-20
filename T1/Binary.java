@@ -1,3 +1,4 @@
+//Binary 
 import java.util.Scanner;
 
 class Binary {
