@@ -1,4 +1,3 @@
-// 2.Circular LinkedList
 import java.util.Scanner;
 
 class CircularLinkedList {
@@ -288,15 +287,16 @@ class CLL {
     void printMaximumNumber() {
         if (first == null) {
             System.out.println("LinkList is empty!!!");
-        } else {
-            Node temp = first;
-            Node max = first;
-            do {
-                if (temp.data > max.data) {
-                    max = temp;
-                }
-            } while (temp != first);
-            System.out.println("MAximum Value Is : " + max.data);
+            return;
         }
+        Node temp = first;
+        int max = first.data;
+        do {
+            if (temp.data > max) {
+                max = temp.data;
+            }
+            temp = temp.next;
+        } while (temp != first);
+        System.out.println("Maximum Value Is : " + max);
     }
 }
