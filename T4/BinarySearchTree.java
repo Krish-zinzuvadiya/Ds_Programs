@@ -12,6 +12,7 @@ class BinarySearchTree {
             System.out.println("4.Find Min Element(Without Recursion).");
             System.out.println("5.Find Max Element(Recursion).");
             System.out.println("6.Find Max Element(Without Recursion).");
+            System.out.println("7.Height Of Tree");
             System.out.println("==============================================");
 
             System.out.print("Enter Your Choice :- ");
@@ -49,6 +50,10 @@ class BinarySearchTree {
 
                 case 6:
                     ob.findMax(ob.root);
+                    break;
+
+                case 7:
+                    System.out.println(ob.height(ob.root));
                     break;
                 default:
                     System.out.println("Invalid Choice! Please Try Again Between <1-5>.");
@@ -147,5 +152,20 @@ class BST {
             cur = cur.right;
         }
         System.out.println("Maximum Element is :- " + cur.data);
+    }
+
+    int height(Node root) {
+        if (root == null) {
+            return 0;
+        } else {
+            int left_height = height(root.left);
+            int right_height = height(root.right);
+
+            if (left_height >= right_height) {
+                return left_height;
+            } else {
+                return right_height;
+            }
+        }
     }
 }
