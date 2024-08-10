@@ -19,7 +19,12 @@ public class SinglyLinkedlist {
             System.out.println("11. Display Element Using Recursion.");
             System.out.println("12. Display Reverse Element Using Recursion.");
             System.out.println("13. Display An Sorted Element For New Element.");
-            System.out.println("14. Exit.");
+            System.out.println("14.Delete Duplicate Values");
+            System.out.println("15.Delete Only Even Values");
+            System.out.println("16.Delete Only Odd Values");
+            System.out.println("17.Delete Odd Positioned Nodes");
+            System.out.println("18.Delete Even Positioned Nodes");
+            System.out.println("19. Exit.");
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
             System.out.print("Enter Your Choice : ");
             int choice = sc.nextInt();
@@ -102,7 +107,33 @@ public class SinglyLinkedlist {
                     s.sortedInsert(val4);
                     s.display();
                     break;
+
                 case 14:
+                    s.deleteDuplicates();
+                    s.display();
+                    break;
+
+                case 15:
+                    s.deleteEvenValues();
+                    s.display();
+                    break;
+
+                case 16:
+                    s.deleteOddValues();
+                    s.display();
+                    break;
+
+                case 17:
+                    s.deleteOddPositionedNodes();
+                    s.display();
+                    break;
+
+                case 18:
+                    s.deleteEvenPositionedNodes();
+                    s.display();
+                    break;
+
+                case 19:
                     System.out.println("Thank You For Using Our Code...");
                     System.exit(0);
                     break;
@@ -363,6 +394,99 @@ class SinglyLL {
             }
             n.next = temp.next;
             temp.next = n;
+        }
+    }
+
+    void deleteDuplicates() {
+        Node temp = first;
+        while (temp != null && temp.next != null) {
+            if (temp.data == temp.next.data) {
+                temp.next = temp.next.next;
+            } else {
+                temp = temp.next;
+            }
+        }
+    }
+
+    void deleteEvenValues() {
+        if (first == null) {
+            return;
+        }
+
+        if (first.data % 2 == 0) {
+            first = first.next;
+        }
+
+        Node temp = first;
+        while (temp != null && temp.next != null) {
+            if (temp.next.data % 2 == 0) {
+                temp.next = temp.next.next;
+            } else {
+                temp = temp.next;
+            }
+        }
+    }
+
+    void deleteOddValues() {
+        if (first == null) {
+            return;
+        }
+
+        if (first.data % 2 != 0) {
+            first = first.next;
+        }
+
+        Node temp = first;
+        while (temp != null && temp.next != null) {
+            if (temp.next.data % 2 != 0) {
+                temp.next = temp.next.next;
+            } else {
+                temp = temp.next;
+            }
+        }
+    }
+
+    void deleteOddPositionedNodes() {
+        if (first == null) {
+            return;
+        }
+
+        Node temp = first;
+        int position = 1;
+
+        while (temp != null && temp.next != null) {
+            if (position % 2 != 0) {
+                temp.next = temp.next.next;
+            } else {
+                temp = temp.next;
+            }
+            position++;
+        }
+    }
+
+    void deleteEvenPositionedNodes() {
+        if (first == null) {
+            return;
+        }
+
+        Node temp = first;
+
+        if (temp.next != null) {
+            Node next = temp.next;
+            temp.next = next.next;
+        }
+
+        int position = 2;
+        temp = first;
+
+        while (temp != null && temp.next != null) {
+            if (position % 2 == 0) {
+                Node next = temp.next;
+                temp.next = next.next;
+            } else {
+                temp = temp.next;
+            }
+            position++;
         }
     }
 }
