@@ -175,13 +175,14 @@ class CLL {
         System.out.println("Deleted Successfully!!!");
     }
 
-    void insertBeforeValue(int d, int val) {
+   void insertBeforeValue(int d, int val) {
         int f = 0;
         Node dummy = first;
 
         do {
             if (dummy.data == val) {
                 f = 1;
+                break;
             }
             dummy = dummy.next;
         } while (dummy != first);
@@ -189,21 +190,17 @@ class CLL {
             System.out.println("Value Not Found !");
         } else {
             Node n = new Node(d);
-            if (first.data == val && first.next == first) {
-                n.next = first;
-                first.next = n;
-                first = n;
-            } else if (first.data == val && first.next == first) {
-                n.next = first;
+            if (dummy == first) {
                 Node temp = first;
                 while (temp.next != first) {
                     temp = temp.next;
                 }
+                n.next = first;
                 temp.next = n;
                 first = n;
             } else {
                 Node temp = first;
-                while (temp.next.data != val) {
+                while (temp.next != dummy) {
                     temp = temp.next;
                 }
                 n.next = temp.next;
