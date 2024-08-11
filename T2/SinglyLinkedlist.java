@@ -489,20 +489,4 @@ class SinglyLL {
             position++;
         }
     }
-
-    void sortedInsert(int d) {
-        Node n = new Node(d);
-        if (first == null || first.data >= n.data) {
-            n.next = first;
-            first = n;
-        } else {
-            Node temp = first;
-            while (temp.next != null && temp.next.data < n.data) {
-                temp = temp.next;
-            }
-            n.next = temp.next;
-            temp.next = n;
-        }
-        System.out.println(d + " Is Inserted.");
-    }
 }
