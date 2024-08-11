@@ -300,3 +300,27 @@ class CLL {
         System.out.println("Maximum Value Is : " + max);
     }
 }
+
+void insertOrdered(int d) {
+        Node n = new Node(d);
+        if (first == null) {
+            first = n;
+            n.next = n;
+        } else if (d < first.data) {
+            Node temp = first;
+            while (temp.next != first) {
+                temp = temp.next;
+            }
+            temp.next = n;
+            n.next = first;
+            first = n;
+        } else {
+            Node temp = first;
+            while (temp.next != first && temp.next.data < d) {
+                temp = temp.next;
+            }
+            n.next = temp.next;
+            temp.next = n;
+        }
+        System.out.println(d + " Is Inserted.");
+    }
