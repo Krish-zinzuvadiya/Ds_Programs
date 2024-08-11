@@ -175,7 +175,7 @@ class CLL {
         System.out.println("Deleted Successfully!!!");
     }
 
-   void insertBeforeValue(int d, int val) {
+  void insertBeforeValue(int d, int val) {
         int f = 0;
         Node dummy = first;
 
