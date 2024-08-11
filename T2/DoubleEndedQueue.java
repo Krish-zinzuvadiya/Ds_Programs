@@ -174,30 +174,24 @@ class DoubleQueue {
     }
 
     // --> Display The Whole Queue...
-    void display() {
-        try {
-            if (f == -1) {
-                System.out.println(CYAN_COLOR + "--------------------" + RESET_COLOR);
-                System.out.println(RED_COLOR + "Queue is Empty." + RESET_COLOR);
-            }
-            if (f > r) {
-                System.out.println(CYAN_COLOR + "--------------------" + RESET_COLOR);
-                for (int i = f; i <= size - 1; i++) {
-                    System.out.print(q1[i] + " ");
+   void display() {
+        if (f == -1) {
+            System.out.println("Queue Is Empty.");
+        } else {
+            System.out.print("Queue Elements Are : ");
+            int i = f;
+            while (true) {
+                System.out.print(q1[i] + " ");
+                if (i == r) {
+                    break;
                 }
-                for (int i = 0; i <= r; i++) {
-                    System.out.print(q1[i] + " ");
-                }
-            } else {
-                System.out.println(CYAN_COLOR + "--------------------" + RESET_COLOR);
-                for (int i = f; i <= r; i++) {
-                    System.out.print(q1[i] + " ");
+                if (i == size - 1) {
+                    i = 0;
+                } else {
+                    i++;
                 }
             }
             System.out.println();
-            System.out.println(CYAN_COLOR + "--------------------" + RESET_COLOR);
-        } catch (Exception e) {
-
         }
     }
 }
